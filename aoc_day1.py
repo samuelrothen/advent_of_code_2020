@@ -20,7 +20,7 @@ def find_sum_three_n(numbers, n_find):
             return found * n1
 
 
-numbers = np.loadtxt('input/day1.csv',dtype=int)
+numbers = np.loadtxt('input/day1.txt',dtype=int)
 n_find = 2020
 
 print(f'Part 1: {find_sum_two_n(numbers, n_find)}')
