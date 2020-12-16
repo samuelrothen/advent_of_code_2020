@@ -37,9 +37,8 @@ def sum_bags(color_rules, numbers_rules, check_color, mulip = 1):
     return n_bags_total + 1
 
 
-def check(bag_rules):
+def check(color_rules, numbers_rules):
     n_found = 0
-    color_rules, numbers_rules = parse_colors(bag_rules)
     for key in color_rules:
         if search_color(color_rules, key):
             n_found += 1
@@ -52,7 +51,5 @@ with open ('input/day7.txt', 'r') as f:
 
 color_rules, numbers_rules = parse_colors(bag_rules)
 
-print(f'Part 1: {check(bag_rules)}')
+print(f'Part 1: {check(color_rules, numbers_rules)}')
 print(f'Part 2: {sum_bags(color_rules, numbers_rules, "shiny gold", mulip = 1) - 1}')
-
-
