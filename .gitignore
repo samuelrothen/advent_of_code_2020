@@ -125,3 +125,4 @@ dmypy.json
 .pyre/
 
 .pylint.d
+.pylint.d/aoc_day41.stats
