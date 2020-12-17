@@ -18,7 +18,7 @@ def calc_seatID(input_string):
     return seatID
 
 
-with open ('input/day5.txt', 'r') as f:
+with open ('input/day05.txt', 'r') as f:
     seating_list = f.read().splitlines()
 
 seatIDs = []

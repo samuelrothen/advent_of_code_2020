@@ -26,7 +26,7 @@ def check_pw_part2(text):
         return False
 
 
-df = pd.read_csv('input/day2.txt', names=['String'])
+df = pd.read_csv('input/day02.txt', names=['String'])
 df['PW_Check_1'] = df['String'].apply(lambda text: check_pw_part1(text))
 df['PW_Check_2'] = df['String'].apply(lambda text: check_pw_part2(text))
 

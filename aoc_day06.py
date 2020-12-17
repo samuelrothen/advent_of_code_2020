@@ -23,7 +23,7 @@ def count_everyones_yes(answers_all):
 
 
 
-with open ('input/day6.txt', 'r') as f:
+with open ('input/day06.txt', 'r') as f:
     answers_all = f.read().split('\n\n')
 
 

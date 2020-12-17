@@ -46,7 +46,7 @@ def check(color_rules, numbers_rules):
 
 
 
-with open ('input/day7.txt', 'r') as f:
+with open ('input/day07.txt', 'r') as f:
     bag_rules = f.read().split('\n')
 
 color_rules, numbers_rules = parse_colors(bag_rules)
