@@ -10,18 +10,19 @@ def return_occu_seats(seats, x, y):
                         (1, -1),  (1, 0),  (1, 1)]
     counter = 0
     for check_y, check_x in seat_check_array:
-        
-        
-        
-        
-        check_x = check_x + x
-        check_y = check_y + y
-        if check_x < 0 or check_y < 0:
-            continue
-        if check_x >= len(seats[0]) or check_y >= len(seats):
-            continue
-        if seats[check_y][check_x] == '#':
-            counter += 1
+        ny, nx = y, x
+        while True:
+            ny = ny + check_y
+            nx = nx + check_x
+            if nx < 0 or ny < 0:
+                break
+            if nx >= len(seats[0]) or ny >= len(seats):
+                break
+            if seats[ny][nx] == '#':
+                counter += 1
+                break
+            elif seats[ny][nx] == 'L':
+                break
     return counter
 
 
