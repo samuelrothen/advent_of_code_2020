@@ -32,4 +32,3 @@ with open ('input/day13.txt', 'r') as f:
 
 print(f'Part 1: {earliest_bus(t_start, busses_p1)}')
 print(f'Part 2: {earliest_timestamp(earliest_timestamp)}')
-
