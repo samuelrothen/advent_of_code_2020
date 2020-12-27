@@ -56,7 +56,7 @@ def return_active_cubes(cubes, n_cycles):
     return list(cubes.values()).count('#')
 
 
-with open ('input/day17.txt', 'r') as f:
+with open('input/day17.txt', 'r') as f:
     data =  f.read().split('\n')
 
 cubes = parse_cubes(data)

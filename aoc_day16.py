@@ -85,7 +85,7 @@ def get_result(ticket_cols, your_ticket):
 
 
 
-with open ('input/day16.txt', 'r') as f:
+with open('input/day16.txt', 'r') as f:
     data =  f.read().split('\n')
 
 
@@ -93,6 +93,6 @@ rules, your_ticket, nearby_tickets_all = parse_data(data)
 error, nearby_tickets = calc_error(rules, your_ticket, nearby_tickets_all)
 ticket_cols = get_ticket_cols(nearby_tickets)
 
-    
+
 print(f'Part 1: {sum(error)}')
 print(f'Part 2: {get_result(ticket_cols, your_ticket)}')
