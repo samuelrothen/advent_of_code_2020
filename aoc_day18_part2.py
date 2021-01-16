@@ -1,45 +1,41 @@
 # Advent of Code Day 18 - Part 2
 
 
-import re
-
-
-def return_result(exp_string):
-    operator = ''
-    result = ''
-    for char in re.findall('(\d+|[()+*])', exp_string):
-        if char in '() ':
+def find_sub_par(ex):
+    sub_par = ''
+    level = 0
+    start = False
+    for c in ex:
+        if c != '(' and not start:
             continue
-        else:
-            if char in '+*':
-                operator = char
-            else:
-                result = eval(str(result) + operator + char)
-    return str(result)
+        elif c == '(':
+            level += 1
+            start = True
+        elif c == ')':
+            level -= 1
+        if start:
+            sub_par += c
+        if level == 0 and start:
+            return sub_par[1:-1]
 
 
-def rep_add(p, ex):
-    par_add = re.findall('(\d+ [\+ \d+]+ \d+)', p)
-    for p_add in par_add:
-        ex = ex.replace(p_add, return_result(p_add), 1)
-    return ex
-
-
-def calc_expression(ex):
-    par_pattern = '(\([\d+\s\+\*]+\))'
-    while re.findall(par_pattern, ex):
-        par = re.findall(par_pattern, ex)
-        for p in par:
-            ex = rep_add(p, ex)
-            ex = ex.replace(p, return_result(p), 1)
-    ex = rep_add(ex, ex)
-    return return_result(ex)
+def solve(ex):
+    if '(' in ex:
+        sub = find_sub_par(ex)
+        num = str(solve(sub))
+        ex = ex.replace("("+sub+")", num)
+        return solve(ex)
+    else:
+        total = 1
+        for add in ex.split("*"):
+            total *= eval(add)
+        return total
 
 
 def calc_sum(data):
     results = []
     for ex in data:
-        results.append(int(calc_expression(ex)))
+        results.append(int(solve(ex)))
     return sum(results)
 
 
@@ -47,43 +43,4 @@ with open('input/day18.txt', 'r') as f:
     data =  f.read().split('\n')
 
 
-
 print(f'Part 2: {calc_sum(data)}')
-
-def calc_sum2(data):
-    results = []
-    for ex in data:
-        results.append(int(calc_expression(ex)))
-    return (results)
-
-
-r=calc_sum2(data)
-
-
-#%%
-
-
-
-# ex='2 * 3 + (4 * 5)'
-
-# # calc_expression(ex)
-
-# par_pattern = '(\([\d+\s\+\*]+\))'
-# while re.findall(par_pattern, ex):
-#     par = re.findall(par_pattern, ex)
-#     for p in par:
-#         ex = rep_add(p, ex)
-#         ex = ex.replace(p, return_result(p), 1)
-
-
-
-# rep_add(ex, ex)
-
-
-# # while re.findall(par_pattern, ex):
-# #     par = re.findall(par_pattern, ex)
-# #     for p in par:
-# #         par_add = re.findall('(\d+ [\+ \d+]+ \d+)', p)
-# #         for p_add in par_add:
-# #             ex = ex.replace(p_add, return_result(p_add), 1)
-# #         ex = ex.replace(p, return_result(p), 1)

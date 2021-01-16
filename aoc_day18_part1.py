@@ -1,31 +1,30 @@
 # Advent of Code Day 18 - Part 1
 
 
-import re
-
-
-def return_result(exp_string):
-    operator = ''
-    result = ''
-    for char in re.findall('(\d+|[()+*])', exp_string):
-        if char in '() ':
-            continue
-        else:
-            if char in '+*':
-                operator = char
-            else:
-                result = eval(str(result) + operator + char)
-    return str(result)
-
-
 def calc_expression(ex):
-    par_pattern = '(\([\d+\s\+\*]+\))'
-    while re.findall(par_pattern, ex):
-        par = re.findall(par_pattern, ex)
-        for p in par:
-            ex = ex.replace(p, return_result(p), 1)
-    return return_result(ex)
-
+    par = []
+    level = 0
+    result = 0
+    operator = '+'
+    for c in ex:
+        if c == ' ':
+            continue
+        if c == '(':
+            level += 1
+        elif c == ')':
+            level -= 1
+            if level == 0:
+                c = str(calc_expression(par[1:]))
+                par = []
+        if level:
+            par.append(c)
+        else:
+            if c in '+*':
+                operator = c
+            else:
+                result = eval(str(result) + operator + c)
+    return result
+        
 
 def calc_sum(data):
     results = []
