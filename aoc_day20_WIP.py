@@ -96,7 +96,26 @@ for y, x in product(range(size), range(size)):
                 if abs((ori_T[:, 0] - rgt_edge)).sum() == 0:
                     print('Match')
                     remaining_tiles.remove(rem)
+                    pic_part = ori_T[1:-1, 1:-1]
+                    pic[y*8:(y+1)*8, x*8:(x+1)*8] = pic_part
+                    rgt_edge = ori_T[:, -1]
+                    found_match = True
+                    break
+            if found_match:
+                break
 
-
-
+    if y > 0 and x == 0:
+        found_match = False
+        for rem in remaining_tiles:
+            for ori_T in tiles_T[rem]:
+                if abs((ori_T[0, :] - bot_edge)).sum() == 0:
+                    print('Match')
+                    remaining_tiles.remove(rem)
+                    pic_part = ori_T[1:-1, 1:-1]
+                    pic[y*8:(y+1)*8, x*8:(x+1)*8] = pic_part
+                    rgt_edge = ori_T[:, -1]
+                    found_match = True
+                    break
+            if found_match:
+                break
 
