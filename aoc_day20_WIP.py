@@ -54,10 +54,49 @@ for (num1, edges1), (num2, edges2) in product(edges_T.items(), edges_T.items()):
             n_matches[num1] += 1
 
 result = 1
+corners = []
 for num, m in n_matches.items():
     if m == 2:
         result *= num
-
+        corners.append(num)
 
 
 print(f'Part 1: {result}')
+
+
+
+#%%
+
+
+# for y, x in product(range(12), range(12)):
+    # print(f'x:{x} y:{y}')
+
+
+size = int(len(tiles_T) ** 0.5)
+pic = np.zeros((8 * size, 8 * size))
+
+
+remaining_tiles = list(tiles_T.keys())
+corner = corners[0]
+remaining_tiles.remove(corner)
+
+c_ori = 0
+pic[:8, :8] = tiles_T[corner][c_ori][1:-1, 1:-1]
+
+bot_edge = tiles_T[corner][c_ori][-1, :]
+rgt_edge = tiles_T[corner][c_ori][:, -1]
+
+for y, x in product(range(size), range(size)):
+    if x == 0 and y == 0:
+        continue
+    if x > 0:
+        found_match = False
+        for rem in remaining_tiles:
+            for ori_T in tiles_T[rem]:
+                if abs((ori_T[:, 0] - rgt_edge)).sum() == 0:
+                    print('Match')
+                    remaining_tiles.remove(rem)
+
+
+
+
