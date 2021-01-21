@@ -113,9 +113,18 @@ for y, x in product(range(size), range(size)):
                     remaining_tiles.remove(rem)
                     pic_part = ori_T[1:-1, 1:-1]
                     pic[y*8:(y+1)*8, x*8:(x+1)*8] = pic_part
-                    bot_edge = ori_T[:, -1]
+                    bot_edge = ori_T[-1, :]
+                    rgt_edge = ori_T[:, -1]
                     found_match = True
                     break
             if found_match:
                 break
+
+monster = '''                  # 
+#    ##    ##    ###
+ #  #  #  #  #  #   '''
+
+monster = monster.replace('#', '1').replace(' ','0')
+monster = np.array([[int(c) for c in list(row)] for row in monster.split('\n')])
+
 
