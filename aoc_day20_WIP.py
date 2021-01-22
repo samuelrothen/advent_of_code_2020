@@ -67,13 +67,8 @@ print(f'Part 1: {result}')
 
 #%%
 
-
-# for y, x in product(range(12), range(12)):
-    # print(f'x:{x} y:{y}')
-
-
 size = int(len(tiles_T) ** 0.5)
-pic = np.zeros((8 * size, 8 * size))
+pic = np.zeros((8 * size, 8 * size), dtype=np.uint8)
 
 
 remaining_tiles = list(tiles_T.keys())
@@ -94,7 +89,7 @@ for y, x in product(range(size), range(size)):
         for rem in remaining_tiles:
             for ori_T in tiles_T[rem]:
                 if abs((ori_T[:, 0] - rgt_edge)).sum() == 0:
-                    print('Match')
+                    # print('Match')
                     remaining_tiles.remove(rem)
                     pic_part = ori_T[1:-1, 1:-1]
                     pic[y*8:(y+1)*8, x*8:(x+1)*8] = pic_part
@@ -109,7 +104,7 @@ for y, x in product(range(size), range(size)):
         for rem in remaining_tiles:
             for ori_T in tiles_T[rem]:
                 if abs((ori_T[0, :] - bot_edge)).sum() == 0:
-                    print('Match')
+                    # print('Match')
                     remaining_tiles.remove(rem)
                     pic_part = ori_T[1:-1, 1:-1]
                     pic[y*8:(y+1)*8, x*8:(x+1)*8] = pic_part
@@ -120,11 +115,23 @@ for y, x in product(range(size), range(size)):
             if found_match:
                 break
 
+
 monster = '''                  # 
 #    ##    ##    ###
  #  #  #  #  #  #   '''
-
 monster = monster.replace('#', '1').replace(' ','0')
-monster = np.array([[int(c) for c in list(row)] for row in monster.split('\n')])
+monster = np.array([[int(c) for c in list(row)] for row in monster.split('\n')], dtype=np.uint8)
+n_pixel = monster.sum()
 
+print(pic.sum())
+pic = np.flip(pic, axis = 0)
+
+pic_hight, pic_width = pic.shape
+m_hight, m_width = monster.shape
+for y, x in product(range(pic_hight-m_hight+1), range(pic_width-m_width+1)):
+    pic_part = pic[y:y+m_hight, x:x+m_width]
+    if (pic_part & monster).sum() == n_pixel:
+        pic[y:y+m_hight, x:x+m_width] -= monster
+    
+print(pic.sum())
 
