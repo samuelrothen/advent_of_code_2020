@@ -53,10 +53,24 @@ df = return_allerg_df(food_list)
 
 print(f'Part 1: {count_no_allerg(df)}')
 
+ing_unique, alg_unique = return_unique(food_list)
+df_allerg = df[df.sum(axis=1) > 0]
+dict_allerg = {}
+
+s_allerg = df_allerg.sum(axis = 0)
+s_ingr = df_allerg.sum(axis = 1)
+
+
+# while len(dict_allerg) < alg_unique:
+    
+
+s_allerg[s_allerg==1]
+s_ingr[s_ingr==1]
 
 
 
-df_allerg = df[df.sum(axis=1) == 0].index
+
+
 
 
 
