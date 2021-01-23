@@ -53,27 +53,31 @@ df = return_allerg_df(food_list)
 
 print(f'Part 1: {count_no_allerg(df)}')
 
+
 ing_unique, alg_unique = return_unique(food_list)
 df_allerg = df[df.sum(axis=1) > 0]
 dict_allerg = {}
 
-s_allerg = df_allerg.sum(axis = 0)
-s_ingr = df_allerg.sum(axis = 1)
 
-
-# while len(dict_allerg) < alg_unique:
+while len(dict_allerg) < len(alg_unique):
+    s_allerg = df_allerg.sum(axis = 0)
+    for a in s_allerg[s_allerg == 1].index:
+        ing = df_allerg[a][df_allerg[a] == 1].index.values[0]
+        dict_allerg[a] = ing
+        df_allerg = df_allerg.drop(a, axis = 1)
+        df_allerg = df_allerg.drop(ing, axis = 0)
     
+    s_ingr = df_allerg.sum(axis = 1)
+    for ing in s_ingr[s_ingr == 1].index:
+        a = df_allerg.loc[ing][df_allerg.loc[ing] == 1].index.values[0]
+        dict_allerg[a] = ing
+        df_allerg = df_allerg.drop(a, axis = 1)
+        df_allerg = df_allerg.drop(ing, axis = 0)
 
-s_allerg[s_allerg==1]
-s_ingr[s_ingr==1]
+ing_list=''
+for a, ing in sorted(dict_allerg.items()):
+    ing_list = ing_list + ing + ','
+ing_list = ing_list[:-1]
 
 
-
-
-
-
-
-
-
-
-
+print(f'Part 2: {ing_list}')
