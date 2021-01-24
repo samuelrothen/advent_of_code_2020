@@ -1,10 +1,6 @@
 # Advent of Code Day 22
 
 
-with open('input/day22.txt', 'r') as f:
-    data =  f.read().split('\n\n')
-
-
 def parse_data(data):
     cards = {}
     for i, p in enumerate(data):
@@ -71,6 +67,10 @@ def play_rec_combat(cards):
     else:
         win = 'P1'
     return win, cards
+
+
+with open('input/day22.txt', 'r') as f:
+    data =  f.read().split('\n\n')
 
 
 cards = parse_data(data)
