@@ -23,7 +23,7 @@ def earliest_timestamp(busses):
     return t_start
 
 
-with open ('input/day13.txt', 'r') as f:
+with open ('../input/day13.txt', 'r') as f:
     data =  f.read().split()
     t_start = int(data[0])
     busses_p1 = [int(bus) for bus in data[1].split(',') if bus != 'x']

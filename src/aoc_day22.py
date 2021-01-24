@@ -69,7 +69,7 @@ def play_rec_combat(cards):
     return win, cards
 
 
-with open('input/day22.txt', 'r') as f:
+with open('../input/day22.txt', 'r') as f:
     data =  f.read().split('\n\n')
 
 

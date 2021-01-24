@@ -40,7 +40,7 @@ def sum_valid_msgs(messages, rules):
     return n_valid
 
 
-with open('input/day19.txt', 'r') as f:
+with open('../input/day19.txt', 'r') as f:
     data_rules, data_messages =  f.read().split('\n\n')
     data_rules = data_rules.split('\n')
     data_messages = data_messages.split('\n')

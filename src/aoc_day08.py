@@ -58,6 +58,6 @@ def execute_prog_part2(file):
                 op_id += 1
 
 
-print(f'Part 1: {execute_prog_part1("input/day08.txt")}')
-print(f'Part 2: {execute_prog_part2("input/day08.txt")}')
+print(f'Part 1: {execute_prog_part1("../input/day08.txt")}')
+print(f'Part 2: {execute_prog_part2("../input/day08.txt")}')
 

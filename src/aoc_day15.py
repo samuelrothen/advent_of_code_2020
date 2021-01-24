@@ -21,7 +21,7 @@ def memory_game(starting_numbers, check_turn):
         turn +=1
 
 
-with open ('input/day15.txt', 'r') as f:
+with open ('../input/day15.txt', 'r') as f:
     starting_numbers =  [int(n) for n in f.read().split(',')]
 
 

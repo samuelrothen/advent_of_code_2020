@@ -13,7 +13,7 @@ def check_trees(tree_map, n_steps_r, n_steps_d):
     return n_trees
 
 
-with open ('input/day03.txt', 'r') as f:
+with open ('../input/day03.txt', 'r') as f:
     tree_map = f.read().splitlines()
 
 

@@ -20,7 +20,7 @@ def decrypt(public):
     return loop
 
 
-with open('input/day25.txt', 'r') as f:
+with open('../input/day25.txt', 'r') as f:
     data =  f.read().split('\n')
     card_key = int(data[0])
     door_key = int(data[1])

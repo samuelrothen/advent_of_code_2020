@@ -28,7 +28,7 @@ def find_sum(data, inval_num):
   
 
       
-with open ('input/day09.txt', 'r') as f:
+with open ('../input/day09.txt', 'r') as f:
     data = [int(line) for line in f.read().splitlines()]
 
 inval_num = find_num(data, 25)

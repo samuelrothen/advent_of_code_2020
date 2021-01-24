@@ -126,7 +126,7 @@ def find_monster(pic):
     return pic.sum()
 
 
-with open('input/day20.txt', 'r') as f:
+with open('../input/day20.txt', 'r') as f:
     data =  f.read().split('\n\n')
 
 tiles = parse_tiles(data)

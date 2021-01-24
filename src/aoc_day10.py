@@ -26,7 +26,7 @@ def get_arrangements(data):
     return arrang[max(arrang)]
 
 
-data = np.loadtxt('input/day10.txt',dtype=int)
+data = np.loadtxt('../input/day10.txt',dtype=int)
 
 
 print(f'Part 1: {get_diff(data)}')

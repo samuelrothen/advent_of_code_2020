@@ -44,7 +44,7 @@ def count_no_allerg(df):
                 count += 1
     return count
 
-with open('input/day21.txt', 'r') as f:
+with open('../input/day21.txt', 'r') as f:
     data =  f.read().split('\n')
 
 food_list = parse_data(data)

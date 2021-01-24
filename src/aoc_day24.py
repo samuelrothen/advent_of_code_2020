@@ -76,7 +76,7 @@ def calc_day(tiles):
     return new_tiles
 
 
-with open('input/day24.txt', 'r') as f:
+with open('../input/day24.txt', 'r') as f:
     data =  f.read().split('\n')
 
 

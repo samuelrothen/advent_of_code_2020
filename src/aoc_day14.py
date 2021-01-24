@@ -51,7 +51,7 @@ def return_sum_mem_part2(data):
     return sum(mem.values())
 
 
-with open ('input/day14.txt', 'r') as f:
+with open ('../input/day14.txt', 'r') as f:
     data =  f.read().split('\n')
 
 

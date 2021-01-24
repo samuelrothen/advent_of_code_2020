@@ -39,7 +39,7 @@ def calc_sum(data):
     return sum(results)
 
 
-with open('input/day18.txt', 'r') as f:
+with open('../input/day18.txt', 'r') as f:
     data =  f.read().split('\n')
 
 

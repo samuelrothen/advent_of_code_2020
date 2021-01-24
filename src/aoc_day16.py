@@ -85,7 +85,7 @@ def get_result(ticket_cols, your_ticket):
 
 
 
-with open('input/day16.txt', 'r') as f:
+with open('../input/day16.txt', 'r') as f:
     data =  f.read().split('\n')
 
 

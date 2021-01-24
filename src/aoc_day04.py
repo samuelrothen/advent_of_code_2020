@@ -60,7 +60,7 @@ def check_PP_part2(pp_dict, required):
 
 
 
-with open ('input/day04.txt', 'r') as f:
+with open ('../input/day04.txt', 'r') as f:
     passports_list = f.read().split('\n\n')
 
 required = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']

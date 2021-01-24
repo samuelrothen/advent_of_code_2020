@@ -45,8 +45,8 @@ def solve_part2(cups):
     solution = cups[ix_1 + 1] * cups[ix_1 + 2]
     return solution
 
-
-data = 398254716
+with open('../input/day23.txt', 'r') as f:
+    data =  int(f.read())
 cups = [int(x) for x in str(data)]
 
 

@@ -57,7 +57,7 @@ def calcManhDistPart2(actions):
     return abs(sx) + abs(sy)
 
 
-with open ('input/day12.txt', 'r') as f:
+with open ('../input/day12.txt', 'r') as f:
     actions = [(line[0], int(line[1:])) for line in f.read().split()]
 
 
