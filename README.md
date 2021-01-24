@@ -4,6 +4,9 @@ Solutions to 2020 [Advent of Code](https://adventofcode.com/)
 
 ----
 
+![](/img/animation.gif)
+
+----
 ## Reference
 
 2020 Samuel Rothen
