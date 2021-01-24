@@ -47,7 +47,6 @@ def solve_part2(cups):
 
 
 data = 398254716
-# data = 389125467
 cups = [int(x) for x in str(data)]
 
 
